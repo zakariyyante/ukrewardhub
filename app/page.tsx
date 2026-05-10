@@ -21,13 +21,13 @@ export default async function Home({ searchParams }: PageProps) {
       
       <section className="py-10" id="brands">
         <div className="container mx-auto px-4">
-          <div className="flex flex-col items-center mb-8 text-center">
-            <h2 className="text-3xl md:text-5xl font-black">
+          <div className="flex flex-col items-center mb-16 text-center">
+            <h2 className="text-4xl md:text-6xl font-black tracking-tighter">
               Top Rated <span className="text-primary">UK</span> Brands
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 gap-12 max-w-6xl mx-auto">
             {brands.map((brand, index) => (
               <BrandCard 
                 key={brand.id} 
