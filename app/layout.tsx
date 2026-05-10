@@ -26,7 +26,7 @@ export const metadata: Metadata = {
 };
 
 const GA_MEASUREMENT_ID = "AW-18125330729";
-const CONVERSION_LABEL = "XXXXXXXXXXXX"; // Update this with your actual conversion label if you have one
+const CONVERSION_LABEL = "XbQgCNqJyqUcEKmy6sJD";
 
 export default function RootLayout({
   children,
@@ -47,6 +47,13 @@ export default function RootLayout({
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
             gtag('config', '${GA_MEASUREMENT_ID}');
+
+            // Page view conversion
+            gtag('event', 'conversion', {
+                'send_to': '${GA_MEASUREMENT_ID}/${CONVERSION_LABEL}',
+                'value': 1.0,
+                'currency': 'USD'
+            });
             
             function gtag_report_conversion(url) {
               var callback = function () {
