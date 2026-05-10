@@ -67,8 +67,8 @@ export default function BrandCard({ brand, index, gclid }: BrandCardProps) {
 
         <div className="flex flex-col md:flex-row h-full items-stretch">
           {/* Left Col: Logo (Big) */}
-          <div className="w-full md:w-[220px] p-8 flex items-center justify-center border-b md:border-b-0 md:border-r border-white/5 bg-white/2 shrink-0">
-            <div className="relative w-full aspect-[2/1]">
+          <div className="w-full md:w-[220px] p-4 md:p-8 flex items-center justify-center border-b md:border-b-0 md:border-r border-white/5 bg-white/2 shrink-0">
+            <div className="relative w-full aspect-[3/1] md:aspect-[2/1] max-w-[140px] md:max-w-none">
               <Image
                 src={brand.logo}
                 alt={brand.name}
@@ -79,44 +79,41 @@ export default function BrandCard({ brand, index, gclid }: BrandCardProps) {
           </div>
 
           {/* Center Col: Bonus */}
-          <div className="flex-grow p-8 flex flex-col justify-center text-center md:text-left">
-            <div className="text-[10px] text-primary font-bold uppercase tracking-[0.2em] mb-2">EXCLUSIVE WELCOME OFFER</div>
-            <h3 className="text-2xl md:text-3xl font-black text-white leading-tight">
+          <div className="flex-grow p-4 md:p-8 flex flex-col justify-center text-center md:text-left">
+            <div className="text-[9px] md:text-[10px] text-primary font-bold uppercase tracking-[0.2em] mb-1 md:mb-2">EXCLUSIVE WELCOME OFFER</div>
+            <h3 className="text-lg md:text-3xl font-black text-white leading-tight">
               {brand.bonus}
             </h3>
-            <div className="mt-4 flex flex-wrap justify-center md:justify-start gap-4">
-              <div className="flex items-center gap-1.5 text-[10px] text-white/40 uppercase font-bold">
+            <div className="mt-2 md:mt-4 flex flex-wrap justify-center md:justify-start gap-x-4 gap-y-1">
+              <div className="flex items-center gap-1 text-[9px] md:text-[10px] text-white/40 uppercase font-bold">
                 <span className="text-accent text-xs">✓</span> UKGC Licensed
               </div>
-              <div className="flex items-center gap-1.5 text-[10px] text-white/40 uppercase font-bold">
+              <div className="flex items-center gap-1 text-[9px] md:text-[10px] text-white/40 uppercase font-bold">
                 <span className="text-accent text-xs">✓</span> Secure Payouts
               </div>
-              <div className="flex items-center gap-1.5 text-[10px] text-white/40 uppercase font-bold">
+              <div className="flex items-center gap-1 text-[9px] md:text-[10px] text-white/40 uppercase font-bold hidden md:flex">
                 <span className="text-accent text-xs">✓</span> 24/7 Support
               </div>
             </div>
           </div>
 
           {/* Right Col: Rating + CTA */}
-          <div className="w-full md:w-[280px] p-8 flex flex-col items-center justify-center gap-6 border-t md:border-t-0 md:border-l border-white/5 bg-linear-to-br from-transparent to-white/5 shrink-0">
-            <div className="flex flex-col items-center">
+          <div className="w-full md:w-[280px] p-4 md:p-8 flex flex-row md:flex-col items-center justify-between md:justify-center gap-4 md:gap-6 border-t md:border-t-0 md:border-l border-white/5 bg-linear-to-br from-transparent to-white/5 shrink-0">
+            <div className="flex flex-col items-center md:items-center">
               <div className="flex items-baseline gap-1">
-                <span className="text-5xl font-black text-white">{brand.rating.toFixed(1)}</span>
-                <span className="text-white/20 font-bold text-xl">/10</span>
+                <span className="text-2xl md:text-5xl font-black text-white">{brand.rating.toFixed(1)}</span>
+                <span className="text-white/20 font-bold text-sm md:text-xl">/10</span>
               </div>
-              <div className="flex gap-0.5 mt-2">
+              <div className="flex gap-0.5 mt-1 md:mt-2">
                 {[...Array(5)].map((_, i) => (
-                  <span key={i} className={`text-base ${i < Math.floor(brand.rating / 2) ? 'text-yellow-400' : 'text-white/20'}`}>
+                  <span key={i} className={`text-xs md:text-base ${i < Math.floor(brand.rating / 2) ? 'text-yellow-400' : 'text-white/20'}`}>
                     ★
                   </span>
                 ))}
               </div>
-              <div className="text-[10px] text-white/40 mt-3 uppercase tracking-[0.2em] font-bold">
-                {brand.votes.toLocaleString()} VERIFIED VOTES
-              </div>
             </div>
 
-            <button className="w-full py-4 rounded-xl bg-linear-to-r from-primary to-orange-600 text-white font-black uppercase tracking-widest text-sm shadow-xl shadow-primary/20 group-hover:shadow-primary/40 transition-all gold-shimmer hover:scale-[1.05] active:scale-95">
+            <button className="flex-grow md:w-full py-3 md:py-4 px-6 rounded-xl bg-linear-to-r from-primary to-orange-600 text-white font-black uppercase tracking-widest text-[10px] md:text-sm shadow-xl shadow-primary/20 group-hover:shadow-primary/40 transition-all gold-shimmer hover:scale-[1.05] active:scale-95">
               Claim Offer
             </button>
           </div>

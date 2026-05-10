@@ -52,18 +52,15 @@ export default function MobileModal({ gclid }: MobileModalProps) {
         </div>
         
         <main className="flex-grow">
-          <section className="py-8 px-4">
+          <section className="py-4 px-4">
             <div className="container mx-auto">
-              <div className="text-center mb-8">
-                <h2 className="text-2xl font-black uppercase tracking-tight">
+              <div className="text-center mb-6">
+                <h2 className="text-xl font-black uppercase tracking-tight">
                   Exclusive <span className="text-primary">Mobile</span> Offers
                 </h2>
-                <p className="text-[10px] text-white/40 uppercase tracking-widest mt-1 font-bold">
-                  Hand-picked for your device
-                </p>
               </div>
 
-              <div className="grid grid-cols-1 gap-10">
+              <div className="grid grid-cols-1 gap-6">
                 {mobileBrands.map((brand, index) => (
                   <BrandCard 
                     key={brand.id} 
