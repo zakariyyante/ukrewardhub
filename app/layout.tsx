@@ -25,8 +25,8 @@ export const metadata: Metadata = {
   },
 };
 
-const GA_MEASUREMENT_ID = "G-XXXXXXXXXX"; // Placeholder
-const CONVERSION_LABEL = "XXXXXXXXXXXX"; // Placeholder
+const GA_MEASUREMENT_ID = "AW-18125330729";
+const CONVERSION_LABEL = "XXXXXXXXXXXX"; // Update this with your actual conversion label if you have one
 
 export default function RootLayout({
   children,
