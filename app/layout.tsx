@@ -20,8 +20,11 @@ export const metadata: Metadata = {
   title: "UK Reward Hub | Best UK Casino Reviews & Bonuses",
   description: "Expert reviews of the best UK casino sites. Find exclusive bonuses, rapid payouts, and licensed platforms. Your premier casino review hub.",
   icons: {
-    icon: "/ukrewardhub.png",
-    apple: "/ukrewardhub.png",
+    icon: [
+      { url: "/favicon.png" },
+      { url: "/ukrewardhub.png" },
+    ],
+    apple: "/apple-touch-icon.png",
   },
 };
 
