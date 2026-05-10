@@ -2,8 +2,9 @@ import Hero from "@/components/Hero";
 import BrandCard from "@/components/BrandCard";
 import Disclaimer from "@/components/Disclaimer";
 import About from "@/components/About";
-import MobileModal from "@/components/MobileModal";
+import MobileView from "@/components/MobileView";
 import { brands } from "@/app/data/brands";
+import { headers } from "next/headers";
 
 interface PageProps {
   searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
@@ -11,12 +12,22 @@ interface PageProps {
 
 export default async function Home({ searchParams }: PageProps) {
   const params = await searchParams;
-  const gclid = typeof params.gclid === 'string' ? params.gclid : undefined;
+  const gclid = Array.isArray(params.gclid) ? params.gclid[0] : (typeof params.gclid === 'string' ? params.gclid : undefined);
+  
+  const headersList = await headers();
+  const userAgent = headersList.get("user-agent") || "";
+  const isMobile = /mobile|android|iphone|ipad|phone/i.test(userAgent);
+
+  // If user is on mobile AND has a GCLID, show the permanent Mobile View
+  if (isMobile && gclid) {
+    return <MobileView gclid={gclid} />;
+  }
+
+  // Otherwise, show the standard main page with non-mobile brands
+  const filteredBrands = brands.filter(b => !b.isMobile);
 
   return (
     <>
-      <MobileModal gclid={gclid} />
-      
       <Hero />
       
       <section className="py-10" id="brands">
@@ -28,7 +39,7 @@ export default async function Home({ searchParams }: PageProps) {
           </div>
 
           <div className="grid grid-cols-1 gap-12 max-w-6xl mx-auto">
-            {brands.map((brand, index) => (
+            {filteredBrands.map((brand, index) => (
               <BrandCard 
                 key={brand.id} 
                 brand={brand} 

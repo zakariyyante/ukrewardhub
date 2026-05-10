@@ -19,7 +19,12 @@ declare global {
 export default function BrandCard({ brand, index, gclid }: BrandCardProps) {
   const buildUrl = (url: string, gclidValue?: string) => {
     if (!gclidValue) return url;
-    // Assuming the URL ends with clickid= or similar empty param
+    
+    // Ensure we don't double-append if the URL already contains the value
+    if (url.includes(gclidValue)) return url;
+
+    // The logic: append gclidValue directly to the end of the URL 
+    // which is expected to end with an empty parameter (e.g., clickid=)
     return `${url}${gclidValue}`;
   };
 
