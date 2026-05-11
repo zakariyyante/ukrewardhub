@@ -2,7 +2,7 @@ export default function Hero() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <section className="relative pt-20 pb-10 overflow-hidden felt-texture">
+    <section className="relative pt-20 pb-10 overflow-hidden felt-texture hidden md:block">
       <div className="absolute inset-0 bg-linear-to-b from-accent/10 to-transparent pointer-events-none" />
       
       <div className="container mx-auto px-4 relative z-10 text-center">
